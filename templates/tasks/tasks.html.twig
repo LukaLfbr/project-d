@@ -16,12 +16,15 @@
             <li class="list-group-item text-center">
                <strong> A faire : {{ task.title }}</strong><br>
                 Description: {{ task.description }}<br>
+                
                 {% if task.getLimitDate() is not null %}
-                    Date limite: {{ task.getLimitDate()|date('d-m-Y') }}
+                    Date limite: {{ task.getLimitDate()|date('d-m-Y') }} <br>
                 {% else %}
-                    Date limite: Aucune date définie
+                    Date limite: Aucune date définie <br>
                 {% endif %}
                 <a href="{{ path('deleteTask', {'id': task.id}) }}" class="btn btn-danger">Supprimer</a>
+                <a href="" class="btn btn-success">Modifier</a>
+
             </li>
         {% endfor %}
     </ul>

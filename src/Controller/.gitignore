@@ -1,0 +1,29 @@
+# Dossiers de configuration Symfony
+/.env
+/.env.local
+/.env.test
+/.env.prod
+/var/
+
+# Fichiers de dépendances
+/vendor/
+
+# Dossiers de logs et de cache Symfony
+/var/cache/
+/var/log/
+
+# Fichiers de compilation CSS et JS
+/public/build/
+
+# Fichiers de sauvegarde
+*.swp
+*~
+.DS_Store
+
+# Fichiers de configuration PhpStorm
+.idea/
+
+# Fichiers de sauvegarde de PhpStorm
+*.iml
+*.ipr
+*.iws
