@@ -54,6 +54,7 @@ class TasksController extends AbstractController
         ]);
     }
 
+    //  🆕🆕🆕🆕🆕🆕🆕🆕🆕
     #[Route('/tasks/addtask', name: 'addtask')]
     public function addTask(Request $request, EntityManagerInterface $em): Response
     {
@@ -76,6 +77,29 @@ class TasksController extends AbstractController
         ]);
     }
 
+    // ♻️♻️♻️♻️♻️♻️
+    #[Route("/tasks/{title}-{id}/edit", name: "updateTask")]
+    public function updateTask(Tasks $task, Request $request, EntityManagerInterface $em): Response
+    {
+
+        $form = $this->createForm(TasksType::class, $task);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() and $form->isValid()) {
+            $em->persist($task);
+            $em->flush();
+            return $this->redirectToRoute('app_tasks');
+        }
+
+
+
+        return $this->render('tasks/updateTasks.html.twig', [
+            'task' => $task,
+            'form' => $form,
+        ]);
+    }
+
+    // 🗑️🗑️🗑️🗑️🗑️🗑️🗑️🗑️🗑️
     #[Route("/tasks/delete{id}", name: "deleteTask")]
     public function deleteTask(Tasks $task, EntityManagerInterface $em): Response
     {

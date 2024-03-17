@@ -23,7 +23,8 @@
                     Date limite: Aucune date définie <br>
                 {% endif %}
                 <a href="{{ path('deleteTask', {'id': task.id}) }}" class="btn btn-danger">Supprimer</a>
-                <a href="" class="btn btn-success">Modifier</a>
+                   <a href="{{path('updateTask', {'title' : task.title, 'id'  : task.id}  )}}" class="btn btn-success">Modifier <a/>
+
 
             </li>
         {% endfor %}
