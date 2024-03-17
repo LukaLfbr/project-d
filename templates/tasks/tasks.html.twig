@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks Controller !{% endblock %}
+
+{% block body %}
+
+   <div class="wrapper my-4 text-center">
+    <h1>Hello and welcome to Add Tasks.io !</h1>
+    <p>Veuillez ajouter vos tâches</p>
+
+    <a href="/tasks/timeleft" class="btn btn-primary">Trier par temps restant</a>
+    <a href="/tasks" class="btn btn-primary">Aucun filtre</a>
+   
+    <ul class="list-group list-group-flush">
+        {% for task in tasks %}
+            <li class="list-group-item text-center">
+               <strong> A faire : {{ task.title }}</strong><br>
+                Description: {{ task.description }}<br>
+                {% if task.getLimitDate() is not null %}
+                    Date limite: {{ task.getLimitDate()|date('d-m-Y') }}
+                {% else %}
+                    Date limite: Aucune date définie
+                {% endif %}
+                <a href="/delete/{task.title}" class="btn btn-danger">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <a href="" class="btn btn-info">Ajouter un tâche</a>
+    </div>
+</div>
+
+
+
+
+        
+   
+{% endblock %}
+
