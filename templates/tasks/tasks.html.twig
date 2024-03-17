@@ -21,13 +21,13 @@
                 {% else %}
                     Date limite: Aucune date définie
                 {% endif %}
-                <a href="/delete/{task.title}" class="btn btn-danger">Supprimer</a>
+                <a href="{{ path('deleteTask', {'id': task.id}) }}" class="btn btn-danger">Supprimer</a>
             </li>
         {% endfor %}
     </ul>
 
     <div>
-        <a href="" class="btn btn-info">Ajouter un tâche</a>
+        <a href="tasks/addtask" class="btn btn-info">Ajouter un tâche</a>
     </div>
 </div>
 
