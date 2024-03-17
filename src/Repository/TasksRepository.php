@@ -25,7 +25,7 @@ class TasksRepository extends ServiceEntityRepository
     //     * @return Tasks[] Returns an array of Tasks objects
     //     */
 
-    public function sortByTimeLeft()
+    public function sortByTimeLeft(): array
     {
         return $this->createQueryBuilder('p')
             ->addSelect('CASE WHEN p.limit_date IS NULL THEN 1 ELSE 0 END AS HIDDEN isNull')
